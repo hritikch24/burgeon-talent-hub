@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgeon Talent Hub - Premier Tech Freelancing Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const updateCount = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(() => updateCount(counter), 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCount(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => {
+            counter.innerText = '0';
+            observer.observe(counter);
+        });
+    });
+</script>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Burgeon Talent Hub</h1>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#metrics" class="text-gray-600 hover:text-indigo-600">Impact</a>
+                    <a href="#services" class="text-gray-600 hover:text-indigo-600">Services</a>
+                    <a href="#expertise" class="text-gray-600 hover:text-indigo-600">Expertise</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-indigo-600">Success Stories</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-indigo-700 pt-16">
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover" src="/api/placeholder/1920/1080" alt="Background">
+            <div class="absolute inset-0 bg-indigo-700 mix-blend-multiply"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Elevate Your Tech Projects</h1>
+            <p class="mt-6 text-xl text-indigo-100 max-w-3xl">Connect with elite freelance talent in DevOps, IBM Sterling, AI/ML, and full-stack development. Join thousands of successful businesses that trust Burgeon Talent Hub.</p>
+        </div>
+    </div>
+
+    <!-- Metrics Section -->
+    <div id="metrics" class="relative bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        <div class="relative max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="bg-indigo-50 rounded-lg p-8 text-center">
+                    <div class="counter text-4xl font-bold text-indigo-600" data-target="15">0</div>
+                    <div class="mt-2 text-xl font-medium">Active Freelancers</div>
+                    <p class="mt-2 text-gray-500">Verified tech experts</p>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-8 text-center">
+                    <span class="text-4xl font-bold text-indigo-600">$</span><div class="counter inline-block text-4xl font-bold text-indigo-600" data-target="50">0</div><span class="text-4xl font-bold text-indigo-600">K+</span>
+                    <div class="mt-2 text-xl font-medium">Project Range</div>
+                    <p class="mt-2 text-gray-500">Average project value</p>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-8 text-center">
+                    <div class="counter text-4xl font-bold text-indigo-600" data-target="95">0</div><span class="text-4xl font-bold text-indigo-600">%</span>
+                    <div class="mt-2 text-xl font-medium">Success Rate</div>
+                    <p class="mt-2 text-gray-500">Client satisfaction</p>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-8 text-center">
+                    <div class="counter text-4xl font-bold text-indigo-600" data-target="25">0</div><span class="text-4xl font-bold text-indigo-600">+</span>
+                    <div class="mt-2 text-xl font-medium">Projects</div>
+                    <p class="mt-2 text-gray-500">Successfully completed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Enterprise Solutions</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Comprehensive tech solutions tailored for enterprise success
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-8">
+                        <div class="text-indigo-600 text-4xl mb-4">⚙️</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">DevOps Excellence</h3>
+                        <ul class="space-y-3 text-gray-500">
+                            <li>• CI/CD Pipeline Implementation</li>
+                            <li>• Cloud Infrastructure Management</li>
+                            <li>• Container Orchestration</li>
+                            <li>• Infrastructure as Code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-8">
+                        <div class="text-indigo-600 text-4xl mb-4">🔄</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">IBM Sterling Integration</h3>
+                        <ul class="space-y-3 text-gray-500">
+                            <li>• Sterling OMS Implementation</li>
+                            <li>• ITX/ITXA Development</li>
+                            <li>• B2B Integration Services</li>
+                            <li>• Custom Mapping Solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-8">
+                        <div class="text-indigo-600 text-4xl mb-4">🤖</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">AI & Machine Learning</h3>
+                        <ul class="space-y-3 text-gray-500">
+                            <li>• Custom AI Model Development</li>
+                            <li>• Data Analytics</li>
+                            <li>• Natural Language Processing</li>
+                            <li>• Predictive Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expertise Section -->
+    <div id="expertise" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-16">Technical Expertise</h2>
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+                <div class="bg-indigo-50 rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold mb-4">Frontend</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>React</li>
+                        <li>Angular</li>
+                        <li>Vue.js</li>
+                        <li>Next.js</li>
+                    </ul>
+                </div>
+                <div class="bg-indigo-50 rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold mb-4">Backend</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>Go</li>
+                    </ul>
+                </div>
+                <div class="bg-indigo-50 rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold mb-4">DevOps</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>AWS</li>
+                        <li>Azure</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                    </ul>
+                </div>
+                <div class="bg-indigo-50 rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold mb-4">IBM Tools</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>Sterling OMS</li>
+                        <li>Sterling B2B</li>
+                        <li>ITX</li>
+                        <li>ITXA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="bg-gray-50 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-center mb-16">Success Stories</h2>
+            <div class="grid gap-8 lg:grid-cols-3">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-indigo-600 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 mb-6">"Burgeon Talent Hub helped us implement a complex Sterling OMS solution in record time. Their freelancers are top-notch professionals."</p>
+                    <div class="font-medium">CTO, Fortune 500 Retail Company</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-indigo-600 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 mb-6">"The DevOps expertise we accessed through Burgeon transformed our deployment pipeline. Exceptional talent and results."</p>
+                    <div class="font-medium">VP Engineering, Tech Startup</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-indigo-600 text-2xl mb-4">★★★★★</div>
+                    <p class="text-gray-600 mb-6">"Outstanding AI/ML talent that helped us build cutting-edge predictive analytics solutions. Highly recommended!"</p>
+                    <div class="font-medium">Head of Innovation, Healthcare Company</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="bg-indigo-700 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-4xl font-extrabold text-white mb-8">Get Started Today</h2>
+                <p class="text-xl text-indigo-100 mb-12">Connect with our team to discuss your project requirements</p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="p-8">
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div class="text-center p-6 border-b md:border-b-0 md:border-r border-gray-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">India Offices</h3>
+                            <div class="space-y-2">
+                                <p class="text-gray-600">Sector 14, Gurgaon</p>
+                                <p class="text-gray-600">Crossing Republic, Noida</p>
+                                <a href="tel:+919205082571" class="text-xl text-indigo-600 hover:text-indigo-800 font-medium block mt-4">
+                                    +91 9205082571
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">USA Office</h3>
+                            <div class="space-y-2">
+                                <p class="text-gray-600">Chicago, Illinois</p>
+                                <a href="tel:+17733121214" class="text-xl text-indigo-600 hover:text-indigo-800 font-medium block mt-4">
+                                    +1 (773) 312-1214
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-white mb-4">Burgeon Talent Hub</h2>
+                <p class="text-gray-400">Connecting businesses with elite tech talent worldwide</p>
+                <p class="mt-8 text-gray-400 text-sm">
+                    © 2024 Burgeon Talent Hub. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
