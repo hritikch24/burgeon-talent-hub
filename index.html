@@ -9,7 +9,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const counters = document.querySelectorAll('.counter');
-        const speed = 200;
+        const speed = 1000;
 
         const updateCount = (counter) => {
             const target = +counter.getAttribute('data-target');
@@ -17,8 +17,8 @@
             const increment = target / speed;
 
             if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(() => updateCount(counter), 1);
+                counter.innerText = Math.min(Math.ceil(count + increment), target);
+                setTimeout(() => updateCount(counter), 20);
             } else {
                 counter.innerText = target;
             }
@@ -89,12 +89,18 @@
                     <p class="mt-2 text-gray-500">Average project value</p>
                 </div>
                 <div class="bg-indigo-50 rounded-lg p-8 text-center">
-                    <div class="counter text-4xl font-bold text-indigo-600" data-target="95">0</div><span class="text-4xl font-bold text-indigo-600">%</span>
+                    <div class="flex items-center justify-center">
+                        <div class="counter text-4xl font-bold text-indigo-600" data-target="95">0</div>
+                        <div class="text-4xl font-bold text-indigo-600">%</div>
+                    </div>
                     <div class="mt-2 text-xl font-medium">Success Rate</div>
                     <p class="mt-2 text-gray-500">Client satisfaction</p>
                 </div>
                 <div class="bg-indigo-50 rounded-lg p-8 text-center">
-                    <div class="counter text-4xl font-bold text-indigo-600" data-target="25">0</div><span class="text-4xl font-bold text-indigo-600">+</span>
+                    <div class="flex items-center justify-center">
+                        <div class="counter text-4xl font-bold text-indigo-600" data-target="25">0</div>
+                        <div class="text-4xl font-bold text-indigo-600">+</div>
+                    </div>
                     <div class="mt-2 text-xl font-medium">Projects</div>
                     <p class="mt-2 text-gray-500">Successfully completed</p>
                 </div>
@@ -237,8 +243,7 @@
                         <div class="text-center p-6 border-b md:border-b-0 md:border-r border-gray-200">
                             <h3 class="text-xl font-bold text-gray-900 mb-4">India Offices</h3>
                             <div class="space-y-2">
-                                <p class="text-gray-600">Sector 14, Gurgaon</p>
-                                <p class="text-gray-600">Crossing Republic, Noida</p>
+                                <p class="text-gray-600">Sector 14, Gurugram</p>
                                 <a href="tel:+919205082571" class="text-xl text-indigo-600 hover:text-indigo-800 font-medium block mt-4">
                                     +91 9205082571
                                 </a>
@@ -248,8 +253,8 @@
                             <h3 class="text-xl font-bold text-gray-900 mb-4">USA Office</h3>
                             <div class="space-y-2">
                                 <p class="text-gray-600">Chicago, Illinois</p>
-                                <a href="tel:+17733121214" class="text-xl text-indigo-600 hover:text-indigo-800 font-medium block mt-4">
-                                    +1 (773) 312-1214
+                                <a href="tel:+13314318078" class="text-xl text-indigo-600 hover:text-indigo-800 font-medium block mt-4">
+                                    +1 331-431-8078
                                 </a>
                         </div>
                     </div>
